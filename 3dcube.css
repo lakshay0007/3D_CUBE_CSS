@@ -1,0 +1,62 @@
+#main{
+   width: 400px;
+   height: 400px;
+   margin: 200px auto; /* margin for t,l,r,b */  
+   perspective: 800px; /* defines the distance b/w obj and viewer also it get applies on child
+   //here it get applied on #box (the child) */ 
+   border: 5px solid; 	
+}
+
+#box{
+	width: 400px;
+	transform-style: preserve-3d; /* preserve 3d effect*/
+	animation: rotate 15s linear infinite; /* linear means same speed */
+  color: white;
+  font: 80px impact;
+  text-align: center;
+}
+
+/* on all 6 sides of cubes */
+#box div{
+width: 400px;
+height: 400px;
+position: absolute;  /*  ***all in one same line(IN THIS CASE THEY WILL BEHIND BOX;) */
+opacity: 0.7; /* see inside cube*/
+}
+#front{
+	transform: translateZ(200px); /*it will move towards us on z-axis by 200px */
+   background:red;
+}
+#back{
+		transform: rotateY(180deg) translateZ(200px); /* move away from us by 200px */
+		background-color: #101010;  
+}
+#left{
+	transform: rotateY(-90deg) translateX(-200px);
+	transform-origin: left; /* as transform is by default from center so it will cover 50% so used left*/
+	background-color: green;
+}
+#right{
+	transform: rotateY(90deg) translateX(200px);
+	transform-origin: right;
+	background-color: blue;
+}
+/* 200px is used as width and height is 400px ol 200+200 will movw away by 200 */
+#top{
+	transform: rotateX(-90deg) translateY(-200px);
+	transform-origin: top;
+	background-color: yellow;
+}
+#bottom{
+	transform: rotateX(90deg) translateY(200px);
+	transform-origin: bottom;
+	background-color: #101010;
+}
+/* we use keyframes rule to set animation */
+@keyframes rotate{
+	0% {transform: rotateY(0);}
+	100% {transform: rotateY(360deg);}
+}
+
+
+
